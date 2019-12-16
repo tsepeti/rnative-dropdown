@@ -8,7 +8,7 @@
 
     yarn add rnative-dropdown
 
-## Using
+## Simple Using
 
 ```JS
 import React, { Component } from 'react';
@@ -21,6 +21,30 @@ class Example extends Component {
         <DropdownItem label="item1" onPress={() => alert("item1")} />
         <DropdownItem label="item2" onPress={() => alert("item2")} />
         <DropdownItem label="item3" onPress={() => alert("item3")} />
+      </Dropdown>
+    )
+  }
+}
+```
+
+## `isDone` Using
+
+If you use done you can wait after the press is on.
+
+```JS
+class Example extends Component {
+  render() {
+    return (
+      <Dropdown label="Options">
+        <DropdownItem label="item1" onPress={() => alert("item1")} />
+        <DropdownItem label="item2" onPress={() => alert("item2")} />
+        <DropdownItem isDone={true} label="item3" onPress={(done) => {
+          setTimeout(() => {
+            
+            done();
+            
+          }, 5000)
+        }} />
       </Dropdown>
     )
   }
